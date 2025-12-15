@@ -118,6 +118,20 @@ function afficherPanier() {
   calculerTotal();
 }
 
+// FONCTION 4 : RETIRER UN PRODUIT DU PANIER
+function retirerDuPanier(idProduit) {
+  // Trouver l'index du produit dans le panier
+  const index = panier.findIndex((item) => item.id === idProduit);
+
+  if (index !== -1) {
+    // Retirer complètement le produit du panier
+    panier.splice(index, 1);
+  }
+
+  // Mettre à jour l'affichage
+  afficherPanier();
+}
+
 // FONCTION 5 : CALCULER LE TOTAL
 function calculerTotal() {
   // Calculer la somme totale
@@ -131,7 +145,7 @@ function calculerTotal() {
   document.getElementById("montant-total").textContent = total.toFixed(2);
 }
 
-//  FONCTION 6 : VALIDER L'EMAIL
+// FONCTION 6 : VALIDER L'EMAIL
 function validerEmail(email) {
   // Regex pour valider le format email
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

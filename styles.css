@@ -1,0 +1,270 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+}
+
+/* ===== SECTION BOUTIQUE ===== */
+#boutique {
+  flex: 2;
+}
+
+#boutique h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Grille des produits avec flexbox */
+.grid-produits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ===== CARTE PRODUIT ===== */
+.carte-produit {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(50% - 10px);
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.carte-produit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carte-produit img {
+  width: 100%;
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.carte-produit h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+.carte-produit p {
+  font-size: 20px;
+  color: #27ae60;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.carte-produit button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.carte-produit button:hover {
+  background-color: #2980b9;
+}
+
+/* ===== SECTION PANIER ===== */
+#panier-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+#panier-section h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+#panier-liste {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+  margin-bottom: 15px;
+}
+
+/* ===== ITEM PANIER ===== */
+.item-panier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ecf0f1;
+  margin-bottom: 10px;
+}
+
+.item-panier:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info h4 {
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-actions button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.item-actions button:hover {
+  background-color: #c0392b;
+}
+
+/* ===== TOTAL ===== */
+.total-section {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.total-section h3 {
+  font-size: 22px;
+}
+
+#montant-total {
+  color: #27ae60;
+}
+
+/* ===== COMMANDE ===== */
+.commande-box {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.commande-box h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+#email-client {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#btn-commander {
+  width: 100%;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+#btn-commander:hover {
+  background-color: #229954;
+}
+
+/* ===== MESSAGE FEEDBACK ===== */
+#message-feedback {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+#message-feedback.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  display: block;
+}
+
+#message-feedback.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  display: block;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .carte-produit {
+    flex: 1 1 100%;
+  }
+
+  #panier-section {
+    width: 100%;
+  }
+}
