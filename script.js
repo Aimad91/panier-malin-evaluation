@@ -117,3 +117,23 @@ function afficherPanier() {
   // Calculer et afficher le total
   calculerTotal();
 }
+
+// FONCTION 5 : CALCULER LE TOTAL
+function calculerTotal() {
+  // Calculer la somme totale
+  let total = 0;
+
+  panier.forEach((item) => {
+    total += item.prix * item.quantite;
+  });
+
+  // Afficher le total
+  document.getElementById("montant-total").textContent = total.toFixed(2);
+}
+
+//  FONCTION 6 : VALIDER L'EMAIL
+function validerEmail(email) {
+  // Regex pour valider le format email
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
