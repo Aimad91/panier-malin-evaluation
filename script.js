@@ -137,3 +137,50 @@ function validerEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+
+// FONCTION 7 : PASSER LA COMMANDE
+function passerCommande() {
+  const emailInput = document.getElementById("email-client");
+  const email = emailInput.value.trim();
+  const messageFeedback = document.getElementById("message-feedback");
+
+  // Réinitialiser les classes
+  messageFeedback.className = "";
+  messageFeedback.style.display = "none";
+
+  // Vérification 1 : Le panier est-il vide ?
+  if (panier.length === 0) {
+    messageFeedback.className = "error";
+    messageFeedback.textContent =
+      "❌ Votre panier est vide ! Ajoutez des produits avant de commander.";
+    return;
+  }
+
+  // Vérification 2 : L'email est-il valide ?
+  if (!validerEmail(email)) {
+    messageFeedback.className = "error";
+    messageFeedback.textContent =
+      "❌ Veuillez entrer une adresse email valide.";
+    return;
+  }
+
+  // Si tout est OK, afficher le message de succès
+  messageFeedback.className = "success";
+  messageFeedback.textContent = `✅ Commande validée ! Un email de confirmation a été envoyé à ${email}.`;
+
+  // Vider le panier et réinitialiser
+  panier = [];
+  emailInput.value = "";
+  afficherPanier();
+}
+
+// INITIALISATION AU CHARGEMENT DE LA PAGE
+document.addEventListener("DOMContentLoaded", function () {
+  // Afficher les produits
+  afficherProduits();
+
+  // Ajouter l'événement sur le bouton commander
+  document
+    .getElementById("btn-commander")
+    .addEventListener("click", passerCommande);
+});
